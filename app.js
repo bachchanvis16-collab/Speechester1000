@@ -76,24 +76,33 @@ function bindSimulator(root){
   updateLights(root);
 }
 
-function onStartPress(){
+let pressTimer = null;
+function onStartPress() {
   const now = performance.now();
-  state.device.pressTimes = state.device.pressTimes.filter(t => now - t < 600);
   state.device.pressTimes.push(now);
-  const n = state.device.pressTimes.length;
-  if (n === 2){
-    // Practice
-    setTimeout(()=>{
-      if (state.device.pressTimes.length === 2){
-        navigate('practice');
-        state.device.pressTimes = [];
-      }
-    }, 250);
-  } else if (n === 3){
-    navigate('game');
+
+  clearTimeout(pressTimer);
+  pressTimer = setTimeout(() => {
+    const recentPresses = state.device.pressTimes.filter(t => now - t < 1000);
+    if (recentPresses.length >= 3) {
+      // Navigate to Game Mode
+      navigate('game');
+      // Wait a tick, then show Game 2 tab
+      setTimeout(() => {
+        document.querySelectorAll('.tabs button').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.add('hidden'));
+        const g2tab = document.querySelector('.tabs button[data-tab="g2"]') || document.querySelector('.tabs button:nth-child(2)');
+        if (g2tab) g2tab.classList.add('active');
+        const g2panel = document.getElementById('g2');
+        if (g2panel) g2panel.classList.remove('hidden');
+      }, 100);
+    } else if (recentPresses.length === 2) {
+      navigate('practice');
+    }
     state.device.pressTimes = [];
-  }
+  }, 300);
 }
+
 
 // --- Render screens ---
 function render(){
