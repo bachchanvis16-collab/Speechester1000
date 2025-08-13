@@ -1,78 +1,58 @@
-/* Reset & Base */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+/* Base Dark Mode */
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background: #f4f4f4;
-  color: #333;
+  background: #121212;
+  color: #e0e0e0;
   line-height: 1.5;
   padding: 20px;
 }
+
+/* Card-style sections */
+.card {
+  background: #1e1e1e;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 15px 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+/* Buttons */
 button {
   cursor: pointer;
   border: none;
-  background: #ddd;
+  background: #2a2a2a;
+  color: #e0e0e0;
   padding: 8px 14px;
   border-radius: 5px;
   font-size: 1rem;
-  transition: background 0.2s;
+  transition: background 0.2s, color 0.2s;
 }
 button:hover {
-  background: #ccc;
+  background: #3a3a3a;
 }
 button.primary {
-  background: #007bff;
+  background: #2979ff;
   color: white;
 }
 button.primary:hover {
-  background: #0064d6;
+  background: #1c54b2;
 }
 button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
 
-/* Layout & Components */
-.screen {
-  max-width: 800px;
-  margin: auto;
+/* Inputs & Textareas */
+input, textarea {
+  background: #1e1e1e;
+  color: #f0f0f0;
+  border: 1px solid #333;
+  border-radius: 4px;
+  padding: 8px;
 }
-.center {
-  text-align: center;
-}
-.card {
-  background: white;
-  border-radius: 8px;
-  padding: 15px;
-  margin: 15px 0;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-.row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.sim-row {
-  margin-top: 10px;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-.hint {
-  font-size: 0.8rem;
-  color: #666;
-}
-.note {
-  font-size: 0.85rem;
-  color: #555;
-}
-.feedback {
-  margin-top: 10px;
-  font-weight: bold;
-  color: #007bff;
+input:focus, textarea:focus {
+  border-color: #2979ff;
+  outline: none;
 }
 
 /* Device Status Lights */
@@ -89,21 +69,9 @@ button:disabled {
   display: inline-block;
   opacity: 0.3;
 }
-.dot.red { background: red; }
-.dot.yellow { background: gold; }
-.dot.green { background: limegreen; }
-
-/* Grid Layouts */
-.grid-2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
-}
-@media(max-width: 600px) {
-  .grid-2 {
-    grid-template-columns: 1fr;
-  }
-}
+.dot.red { background: #ff4d4d; }
+.dot.yellow { background: #ffd54f; }
+.dot.green { background: #00e676; }
 
 /* Tabs */
 .tabs {
@@ -113,15 +81,11 @@ button:disabled {
 }
 .tabs button {
   flex: 1;
-  background: #eee;
-  border-radius: 5px;
+  background: #2a2a2a;
 }
 .tabs button.active {
-  background: #007bff;
+  background: #2979ff;
   color: white;
-}
-.tab-panel.hidden {
-  display: none;
 }
 
 /* Chips for articulation list */
@@ -131,23 +95,17 @@ button:disabled {
   gap: 8px;
 }
 .chips button {
-  background: #f0f0f0;
+  background: #2a2a2a;
   border-radius: 20px;
   padding: 5px 15px;
 }
 .chips button:hover {
-  background: #ddd;
+  background: #3a3a3a;
 }
 
-/* Forms */
-form label {
-  display: block;
-  margin-bottom: 8px;
-}
-form input, textarea {
-  width: 100%;
-  padding: 8px;
-  margin-top: 3px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
+/* Feedback text */
+.feedback {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #2979ff;
 }
