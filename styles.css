@@ -1,37 +1,31 @@
-/* Base Dark Mode */
+/* Reset & Base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background: #121212;
-  color: #e0e0e0;
+  background: #121212; /* Dark background */
+  color: #e0e0e0; /* Light text */
   line-height: 1.5;
   padding: 20px;
 }
-
-/* Card-style sections */
-.card {
-  background: #1e1e1e;
-  border-radius: 8px;
-  padding: 15px;
-  margin: 15px 0;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-}
-
-/* Buttons */
 button {
   cursor: pointer;
   border: none;
-  background: #2a2a2a;
+  background: #2a2a2a; /* Dark buttons */
   color: #e0e0e0;
   padding: 8px 14px;
   border-radius: 5px;
   font-size: 1rem;
-  transition: background 0.2s, color 0.2s;
+  transition: background 0.2s;
 }
 button:hover {
   background: #3a3a3a;
 }
 button.primary {
-  background: #2979ff;
+  background: #2979ff; /* Blue for primary */
   color: white;
 }
 button.primary:hover {
@@ -42,17 +36,44 @@ button:disabled {
   cursor: not-allowed;
 }
 
-/* Inputs & Textareas */
-input, textarea {
-  background: #1e1e1e;
-  color: #f0f0f0;
-  border: 1px solid #333;
-  border-radius: 4px;
-  padding: 8px;
+/* Layout & Components */
+.screen {
+  max-width: 800px;
+  margin: auto;
 }
-input:focus, textarea:focus {
-  border-color: #2979ff;
-  outline: none;
+.center {
+  text-align: center;
+}
+.card {
+  background: #1e1e1e; /* Dark card */
+  border-radius: 8px;
+  padding: 15px;
+  margin: 15px 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+.row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sim-row {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.hint {
+  font-size: 0.8rem;
+  color: #aaa;
+}
+.note {
+  font-size: 0.85rem;
+  color: #bbb;
+}
+.feedback {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #2979ff;
 }
 
 /* Device Status Lights */
@@ -73,6 +94,18 @@ input:focus, textarea:focus {
 .dot.yellow { background: #ffd54f; }
 .dot.green { background: #00e676; }
 
+/* Grid Layouts */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+@media(max-width: 600px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Tabs */
 .tabs {
   display: flex;
@@ -82,10 +115,14 @@ input:focus, textarea:focus {
 .tabs button {
   flex: 1;
   background: #2a2a2a;
+  border-radius: 5px;
 }
 .tabs button.active {
   background: #2979ff;
   color: white;
+}
+.tab-panel.hidden {
+  display: none;
 }
 
 /* Chips for articulation list */
@@ -103,9 +140,21 @@ input:focus, textarea:focus {
   background: #3a3a3a;
 }
 
-/* Feedback text */
-.feedback {
-  margin-top: 10px;
-  font-weight: bold;
-  color: #2979ff;
+/* Forms */
+form label {
+  display: block;
+  margin-bottom: 8px;
+}
+form input, textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 3px;
+  border-radius: 4px;
+  border: 1px solid #333;
+  background: #1e1e1e;
+  color: #e0e0e0;
+}
+form input:focus, textarea:focus {
+  border-color: #2979ff;
+  outline: none;
 }
