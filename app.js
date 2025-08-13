@@ -1,4 +1,4 @@
-// Simple SPA Router
+// Simple SPA Router helpers
 const $ = (sel, root=document) => root.querySelector(sel);
 const $$ = (sel, root=document) => [...root.querySelectorAll(sel)];
 
@@ -16,7 +16,9 @@ const state = {
 
 let Screens = {};
 
-function savePatients(){ localStorage.setItem('patients', JSON.stringify(state.patients)); }
+function savePatients(){ 
+  localStorage.setItem('patients', JSON.stringify(state.patients)); 
+}
 
 function navigate(to){
   state.screen = to;
@@ -176,6 +178,7 @@ function bindArtic(root){
 
   const sounds = ['La','Ra','Sa','Cha','Tha','Ka','Ga','Ta','Da','Na','Ma','Pa','Ba'];
   const wrap = $('#artic-list', root);
+  wrap.classList.add('chips');
   sounds.forEach(s => {
     const b = document.createElement('button');
     b.textContent = s;
@@ -207,7 +210,6 @@ function bindPractice(root){
     if (pracRemaining<=0){
       clearInterval(pracInterval); pracInterval=null;
       feedback.textContent = 'YOU DID GREAT';
-      new AudioContext().resume?.().catch(()=>{});
       return;
     }
   }
@@ -308,7 +310,7 @@ function bindGame(root){
   const g2Current = $('#g2-current', root);
 
   $('#g2-ready', root).onclick = ()=>{
-    g2Words = $('#g2-words', root).value.split('\\n').map(w=>w.trim()).filter(Boolean);
+    g2Words = $('#g2-words', root).value.split('\n').map(w=>w.trim()).filter(Boolean);
     if (!g2Words.length) return alert('Please enter at least one word!');
     g2Idx = 0; g2Current.textContent = g2Words[0];
     $('#g2-start', root).disabled=false;
@@ -350,6 +352,7 @@ function bindGame(root){
   }
 }
 
+// --- Init ---
 window.addEventListener('load', ()=>{
   Screens = {
     intro: $('#intro-tpl').content.cloneNode(true),
@@ -362,8 +365,3 @@ window.addEventListener('load', ()=>{
   };
   render();
 });
-"""
-
-fixed_app_js_path = "/mnt/data/app_fixed.js"
-with open(fixed_app_js_path, "w", encoding="utf-8") as f:
-    f.write(fixed_app_js_content)
