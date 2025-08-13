@@ -22,17 +22,17 @@
         <h3>Device Simulator</h3>
         <p>Use these controls to simulate the hardware for your exhibition.</p>
         <div class="sim-row">
-          <button id="btn-connect">Connect</button>
-          <button id="btn-disconnect">Disconnect</button>
-          <button id="btn-touch">Touch Tongue/Lip</button>
+          <button type="button" id="btn-connect">Connect</button>
+          <button type="button" id="btn-disconnect">Disconnect</button>
+          <button type="button" id="btn-touch">Touch Tongue/Lip</button>
         </div>
         <div class="sim-row">
-          <button id="btn-start">Power/Start</button>
+          <button type="button" id="btn-start">Power/Start</button>
           <span class="hint">Press quickly 2× for Practice • 3× for Game</span>
         </div>
         <p class="note">Lights: <b>Red</b> = not connected • <b>Yellow</b> = connecting • <b>Green</b> = contact detected</p>
       </div>
-      <button class="primary" data-nav="log">Next</button>
+      <button type="button" id="btn-next-intro" class="primary" disabled>Next</button>
     </section>
   </template>
 
@@ -41,8 +41,8 @@
       <header class="bar">
         <h2>Patient Log</h2>
         <div class="bar-actions">
-          <button data-nav="add">Add Patient</button>
-          <button data-nav="intro">Back</button>
+          <button type="button" data-nav="add">Add Patient</button>
+          <button type="button" data-nav="intro">Back</button>
         </div>
       </header>
       <div id="patient-list" class="list"></div>
@@ -54,7 +54,7 @@
       <header class="bar">
         <h2>Add Patient</h2>
         <div class="bar-actions">
-          <button data-nav="log">Back</button>
+          <button type="button" data-nav="log">Back</button>
         </div>
       </header>
       <form id="add-form" class="card form">
@@ -74,7 +74,7 @@
       <header class="bar">
         <h2 id="patient-title"></h2>
         <div class="bar-actions">
-          <button data-nav="log">Back to Log</button>
+          <button type="button" data-nav="log">Back to Log</button>
         </div>
       </header>
       <div class="card">
@@ -89,14 +89,14 @@
       <header class="bar">
         <h2 id="mode-title"></h2>
         <div class="bar-actions">
-          <button data-nav="artic">Back</button>
+          <button type="button" data-nav="artic">Back</button>
         </div>
       </header>
       <div class="card">
         <p><b>Instructions:</b> Press the <em>Power/Start</em> button 2× for Practice mode, or 3× for Game mode. (Simulate with the Start button on the Intro page.)</p>
         <div class="row">
-          <button id="go-practice" class="primary">Practice Mode</button>
-          <button id="go-game">Game Mode</button>
+          <button type="button" id="go-practice" class="primary">Practice Mode</button>
+          <button type="button" id="go-game">Game Mode</button>
         </div>
       </div>
     </section>
@@ -107,7 +107,7 @@
       <header class="bar">
         <h2>Practice Mode</h2>
         <div class="bar-actions">
-          <button data-nav="mode">Back</button>
+          <button type="button" data-nav="mode">Back</button>
         </div>
       </header>
 
@@ -120,16 +120,16 @@
             <input id="prac-secs" type="number" min="5" max="600" value="60" />
           </label>
           <div class="row">
-            <button id="prac-start" class="primary">Start</button>
-            <button id="prac-stop">Stop</button>
+            <button type="button" id="prac-start" class="primary">Start</button>
+            <button type="button" id="prac-stop">Stop</button>
           </div>
         </div>
 
         <div class="card">
           <h3 id="prac-prompt">Say “...”</h3>
           <div class="row">
-            <button id="btn-correct">Mark Correct</button>
-            <button id="btn-wrong">Mark Wrong</button>
+            <button type="button" id="btn-correct">Mark Correct</button>
+            <button type="button" id="btn-wrong">Mark Wrong</button>
           </div>
           <p>Correct count: <b id="correct-count">0</b> / 10</p>
           <p>Timer: <b id="prac-timer">00:00</b></p>
@@ -138,7 +138,7 @@
       </div>
 
       <div class="card">
-        <button id="long-press-shutdown">Long-press Power (simulate)</button>
+        <button type="button" id="long-press-shutdown">Long-press Power (simulate)</button>
         <span class="hint">Shuts down device • App says “THANKS FOR USING ME”</span>
       </div>
     </section>
@@ -149,13 +149,13 @@
       <header class="bar">
         <h2>Game Mode</h2>
         <div class="bar-actions">
-          <button data-nav="mode">Back</button>
+          <button type="button" data-nav="mode">Back</button>
         </div>
       </header>
 
       <div class="tabs">
-        <button data-tab="g1" class="active">Game 1 — Roof Sensor</button>
-        <button data-tab="g2">Game 2 — Word List</button>
+        <button type="button" data-tab="g1" class="active">Game 1 — Roof Sensor</button>
+        <button type="button" data-tab="g2">Game 2 — Word List</button>
       </div>
 
       <div class="tab-panel" id="g1">
@@ -167,9 +167,9 @@
               <input id="g1-secs" type="number" min="30" max="600" value="60" />
             </label>
             <div class="row">
-              <button id="g1-ready">Ready</button>
-              <button id="g1-start" class="primary" disabled>Start</button>
-              <button id="g1-stop">Stop</button>
+              <button type="button" id="g1-ready">Ready</button>
+              <button type="button" id="g1-start" class="primary" disabled>Start</button>
+              <button type="button" id="g1-stop">Stop</button>
             </div>
           </div>
 
@@ -178,8 +178,8 @@
             <p>Time: <b id="g1-timer">00:00</b></p>
             <p>Points: <b id="g1-points">0</b></p>
             <div class="row">
-              <button id="g1-touch">Touch Sensor</button>
-              <button id="g1-untouch">Remove</button>
+              <button type="button" id="g1-touch">Touch Sensor</button>
+              <button type="button" id="g1-untouch">Remove</button>
             </div>
             <div id="g1-feedback" class="feedback"></div>
           </div>
@@ -199,17 +199,17 @@ tha</textarea>
               <input id="g2-secs" type="number" min="30" max="600" value="60" />
             </label>
             <div class="row">
-              <button id="g2-ready">Ready</button>
-              <button id="g2-start" class="primary" disabled>Start</button>
-              <button id="g2-stop">Stop</button>
+              <button type="button" id="g2-ready">Ready</button>
+              <button type="button" id="g2-start" class="primary" disabled>Start</button>
+              <button type="button" id="g2-stop">Stop</button>
             </div>
           </div>
           <div class="card">
             <h3>Live Round</h3>
             <p>Current word: <b id="g2-current">—</b></p>
             <div class="row">
-              <button id="g2-correct">Correct</button>
-              <button id="g2-wrong">Wrong</button>
+              <button type="button" id="g2-correct">Correct</button>
+              <button type="button" id="g2-wrong">Wrong</button>
             </div>
             <p>Time: <b id="g2-timer">00:00</b></p>
             <p>Score: <b id="g2-score">0</b></p>
