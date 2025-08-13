@@ -1,160 +1,31 @@
-/* Reset & Base */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: #121212; /* Dark background */
-  color: #e0e0e0; /* Light text */
-  line-height: 1.5;
-  padding: 20px;
-}
-button {
-  cursor: pointer;
-  border: none;
-  background: #2a2a2a; /* Dark buttons */
-  color: #e0e0e0;
-  padding: 8px 14px;
-  border-radius: 5px;
-  font-size: 1rem;
-  transition: background 0.2s;
-}
-button:hover {
-  background: #3a3a3a;
-}
-button.primary {
-  background: #2979ff; /* Blue for primary */
-  color: white;
-}
-button.primary:hover {
-  background: #1c54b2;
-}
-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
+<template id="intro-tpl">
+  <section class="screen center">
+    <div class="intro-header">
+      <h1>Speechester 1000</h1>
+      <p class="subtitle">Where Speech Meets Sound</p>
+    </div>
 
-/* Layout & Components */
-.screen {
-  max-width: 800px;
-  margin: auto;
-}
-.center {
-  text-align: center;
-}
-.card {
-  background: #1e1e1e; /* Dark card */
-  border-radius: 8px;
-  padding: 15px;
-  margin: 15px 0;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-}
-.row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.sim-row {
-  margin-top: 10px;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-.hint {
-  font-size: 0.8rem;
-  color: #aaa;
-}
-.note {
-  font-size: 0.85rem;
-  color: #bbb;
-}
-.feedback {
-  margin-top: 10px;
-  font-weight: bold;
-  color: #2979ff;
-}
-
-/* Device Status Lights */
-.device-status {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin: 15px 0;
-}
-.dot {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  display: inline-block;
-  opacity: 0.3;
-}
-.dot.red { background: #ff4d4d; }
-.dot.yellow { background: #ffd54f; }
-.dot.green { background: #00e676; }
-
-/* Grid Layouts */
-.grid-2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
-}
-@media(max-width: 600px) {
-  .grid-2 {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Tabs */
-.tabs {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-.tabs button {
-  flex: 1;
-  background: #2a2a2a;
-  border-radius: 5px;
-}
-.tabs button.active {
-  background: #2979ff;
-  color: white;
-}
-.tab-panel.hidden {
-  display: none;
-}
-
-/* Chips for articulation list */
-.chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.chips button {
-  background: #2a2a2a;
-  border-radius: 20px;
-  padding: 5px 15px;
-}
-.chips button:hover {
-  background: #3a3a3a;
-}
-
-/* Forms */
-form label {
-  display: block;
-  margin-bottom: 8px;
-}
-form input, textarea {
-  width: 100%;
-  padding: 8px;
-  margin-top: 3px;
-  border-radius: 4px;
-  border: 1px solid #333;
-  background: #1e1e1e;
-  color: #e0e0e0;
-}
-form input:focus, textarea:focus {
-  border-color: #2979ff;
-  outline: none;
-}
+    <div class="intro-content">
+      <div class="device-status">
+        <span class="dot red" data-tip="Not connected"></span>
+        <span class="dot yellow" data-tip="Connecting"></span>
+        <span class="dot green" data-tip="Ready"></span>
+      </div>
+      <div class="sim-panel card">
+        <h3>Device Simulator</h3>
+        <p>Use these controls to simulate the hardware for your exhibition.</p>
+        <div class="sim-row">
+          <button type="button" id="btn-connect">Connect</button>
+          <button type="button" id="btn-disconnect">Disconnect</button>
+          <button type="button" id="btn-touch">Touch Tongue/Lip</button>
+        </div>
+        <div class="sim-row">
+          <button type="button" id="btn-start">Power/Start</button>
+          <span class="hint">Press quickly 2× for Practice • 3× for Game</span>
+        </div>
+        <p class="note">Lights: <b>Red</b> = not connected • <b>Yellow</b> = connecting • <b>Green</b> = contact detected</p>
+      </div>
+      <button type="button" id="btn-next-intro" class="primary">Next</button>
+    </div>
+  </section>
+</template>
