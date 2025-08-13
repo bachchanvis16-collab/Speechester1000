@@ -1,0 +1,12 @@
+Uncaught TypeError: can't access property "onclick", $(...) is null
+    bindGame file:///home/student/Coding/HTML/Speechester1000/app.js:281
+    render file:///home/student/Coding/HTML/Speechester1000/app.js:119
+    navigate file:///home/student/Coding/HTML/Speechester1000/app.js:32
+    pressTimer file:///home/student/Coding/HTML/Speechester1000/app.js:89
+app.js:281:4
+    bindGame file:///home/student/Coding/HTML/Speechester1000/app.js:281
+    render file:///home/student/Coding/HTML/Speechester1000/app.js:119
+    navigate file:///home/student/Coding/HTML/Speechester1000/app.js:32
+    pressTimer file:///home/student/Coding/HTML/Speechester1000/app.js:89
+
+​
