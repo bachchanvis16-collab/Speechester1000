@@ -12,28 +12,33 @@
 <!-- Intro Screen Template -->
 <template id="intro-tpl">
   <section class="screen center">
-    <h1>Speechester 1000</h1>
-    <p class="subtitle">Where Speech Meets Sound</p>
-    <div class="device-status">
-      <span class="dot red" data-tip="Not connected"></span>
-      <span class="dot yellow" data-tip="Connecting"></span>
-      <span class="dot green" data-tip="Ready"></span>
+    <div class="intro-header">
+      <h1>Speechester 1000</h1>
+      <p class="subtitle">Where Speech Meets Sound</p>
     </div>
-    <div class="sim-panel card">
-      <h3>Device Simulator</h3>
-      <p>Use these controls to simulate the hardware for your exhibition.</p>
-      <div class="sim-row">
-        <button type="button" id="btn-connect">Connect (NA)</button>
-        <button type="button" id="btn-disconnect">Disconnect (NA)</button>
-        <button type="button" id="btn-touch">Pulse (NA)</button>
+
+    <div class="intro-content">
+      <div class="device-status">
+        <span class="dot red" data-tip="Not connected"></span>
+        <span class="dot yellow" data-tip="Connecting"></span>
+        <span class="dot green" data-tip="Ready"></span>
       </div>
-      <div class="sim-row">
-        <button type="button" id="btn-start">Power/Start</button>
-        <span class="hint">Press quickly 2× for Practice • 3× for Game</span>
+      <div class="sim-panel card">
+        <h3>Device Simulator</h3>
+        <p>Use these controls to simulate the hardware for your exhibition.</p>
+        <div class="sim-row">
+          <button type="button" id="btn-connect">Connect</button>
+          <button type="button" id="btn-disconnect">Disconnect</button>
+          <button type="button" id="btn-touch">Touch Tongue/Lip</button>
+        </div>
+        <div class="sim-row">
+          <button type="button" id="btn-start">Power/Start</button>
+          <span class="hint">Press quickly 2× for Practice • 3× for Game</span>
+        </div>
+        <p class="note">Lights: <b>Red</b> = not connected • <b>Yellow</b> = connecting • <b>Green</b> = contact detected</p>
       </div>
-      <p class="note">Lights: <b>Red</b> = not connected • <b>Yellow</b> = connecting • <b>Green</b> = contact detected</p>
+      <button type="button" id="btn-next-intro" class="primary">Next</button>
     </div>
-    <button type="button" id="btn-next-intro" class="primary">Next</button>
   </section>
 </template>
 
@@ -104,7 +109,7 @@
   <section class="screen">
     <h2>Game</h2>
     <div class="tabs">
-      <button data-tab="g1">Game 1</button>
+      <button data-tab="g1" class="active">Game 1</button>
       <button data-tab="g2">Game 2</button>
     </div>
     <div id="g1" class="tab-panel">
