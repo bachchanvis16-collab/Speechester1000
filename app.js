@@ -1,4 +1,3 @@
-
 // Simple SPA Router
 const $ = (sel, root=document) => root.querySelector(sel);
 const $$ = (sel, root=document) => [...root.querySelectorAll(sel)];
@@ -15,15 +14,7 @@ const state = {
   }
 };
 
-const Screens = {
-  intro: $('#intro-tpl').content.cloneNode(true),
-  log: $('#log-tpl').content.cloneNode(true),
-  add: $('#add-tpl').content.cloneNode(true),
-  artic: $('#articulation-tpl').content.cloneNode(true),
-  mode: $('#mode-tpl').content.cloneNode(true),
-  practice: $('#practice-tpl').content.cloneNode(true),
-  game: $('#game-tpl').content.cloneNode(true),
-};
+let Screens = {};
 
 function savePatients(){ localStorage.setItem('patients', JSON.stringify(state.patients)); }
 
@@ -317,7 +308,7 @@ function bindGame(root){
   const g2Current = $('#g2-current', root);
 
   $('#g2-ready', root).onclick = ()=>{
-    g2Words = $('#g2-words', root).value.split('\n').map(w=>w.trim()).filter(Boolean);
+    g2Words = $('#g2-words', root).value.split('\\n').map(w=>w.trim()).filter(Boolean);
     if (!g2Words.length) return alert('Please enter at least one word!');
     g2Idx = 0; g2Current.textContent = g2Words[0];
     $('#g2-start', root).disabled=false;
@@ -360,5 +351,19 @@ function bindGame(root){
 }
 
 window.addEventListener('load', ()=>{
+  Screens = {
+    intro: $('#intro-tpl').content.cloneNode(true),
+    log: $('#log-tpl').content.cloneNode(true),
+    add: $('#add-tpl').content.cloneNode(true),
+    artic: $('#articulation-tpl').content.cloneNode(true),
+    mode: $('#mode-tpl').content.cloneNode(true),
+    practice: $('#practice-tpl').content.cloneNode(true),
+    game: $('#game-tpl').content.cloneNode(true),
+  };
   render();
 });
+"""
+
+fixed_app_js_path = "/mnt/data/app_fixed.js"
+with open(fixed_app_js_path, "w", encoding="utf-8") as f:
+    f.write(fixed_app_js_content)
