@@ -16,25 +16,27 @@
       <h1>Speechester 1000</h1>
       <p class="subtitle">Where Speech Meets Sound</p>
       <div class="device-status">
-        <span class="dot red" data-tip="Not connected"></span>
-        <span class="dot yellow" data-tip="Connecting"></span>
-        <span class="dot green" data-tip="Ready"></span>
+        <span class="dot red" id="led-red" data-tip="Not connected"></span>
+        <span class="dot yellow" id="led-yellow" data-tip="Connecting"></span>
+        <span class="dot green" id="led-green" data-tip="Ready"></span>
       </div>
     </div>
+
     <div class="intro-content">
       <div class="sim-panel card">
         <h3>Device Simulator</h3>
         <p>Use these controls to simulate the hardware for your exhibition.</p>
         <div class="sim-row">
-          <button type="button" id="btn-connect">Connect (NA)</button>
-          <button type="button" id="btn-disconnect">Disconnect (NA)</button>
-          <button type="button" id="btn-touch">Pulse (NA)</button>
+          <button type="button" id="btn-connect">Connect</button>
+          <button type="button" id="btn-disconnect">Disconnect</button>
+          <button type="button" id="btn-touch">Touch Tongue/Lip</button>
         </div>
         <div class="sim-row">
           <button type="button" id="btn-start">Power/Start</button>
-          <span class="hint">Press quickly 2× for Practice • 3× for Game</span>
+          <span class="hint">Press quickly 2× for Practice • 3× for Game (Word List)</span>
         </div>
         <p class="note">Lights: <b>Red</b> = not connected • <b>Yellow</b> = connecting • <b>Green</b> = contact detected</p>
+        <p id="touch-error" class="error-message" style="display:none;"></p>
       </div>
       <button type="button" id="btn-next-intro" class="primary">Next</button>
     </div>
@@ -47,7 +49,6 @@
     <h2>Patient Log</h2>
     <div id="patient-list"></div>
     <button data-nav="add">Add Patient</button>
-    <button data-nav="intro">Back</button>
   </section>
 </template>
 
@@ -61,7 +62,6 @@
       <input name="problem" placeholder="Problem" required>
       <button type="submit">Save</button>
     </form>
-    <button data-nav="log">Back</button>
   </section>
 </template>
 
@@ -70,7 +70,6 @@
   <section class="screen">
     <h2 id="patient-title">Patient: </h2>
     <div id="artic-list"></div>
-    <button data-nav="log">Back</button>
   </section>
 </template>
 
@@ -80,7 +79,6 @@
     <h2 id="mode-title">Articulation:</h2>
     <button id="go-practice">Practice</button>
     <button id="go-game">Game</button>
-    <button data-nav="artic">Back</button>
   </section>
 </template>
 
@@ -99,7 +97,6 @@
     <button id="btn-correct">Correct</button>
     <button id="btn-wrong">Wrong</button>
     <button id="long-press-shutdown">Shutdown</button>
-    <button data-nav="mode">Back</button>
   </section>
 </template>
 
@@ -134,7 +131,6 @@
       <div id="g2-current"></div>
       <div id="g2-feedback"></div>
     </div>
-    <button data-nav="mode">Back</button>
   </section>
 </template>
 
